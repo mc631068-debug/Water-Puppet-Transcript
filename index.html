@@ -540,6 +540,7 @@
             });
 
             let startTime = Date.now();
+            let spoken = new Set();
             setInterval(() => {
                 let elapsed = (Date.now() - startTime) / 1000;
                 script.forEach((item, index) => {
@@ -548,13 +549,19 @@
                         if (lineEl && !lineEl.classList.contains('active')) {
                             document.querySelectorAll('.line, .stage-note').forEach(l => l.classList.remove('active'));
                             lineEl.classList.add('active');
-                            if (item.m) {
+                            if (item.m && !spoken.has(index)) {
+                                spoken.add(index);
+
+                                window.speechSynthesis.cancel();
+
                                 let speech = new SpeechSynthesisUtterance(item.m);
+
                                 if (currentLang === 'zh') speech.lang = 'zh-CN';
                                 else if (currentLang === 'vn') speech.lang = 'vi-VN';
                                 else if (currentLang === 'ja') speech.lang = 'ja-JP';
                                 else if (currentLang === 'ko') speech.lang = 'ko-KR';
                                 else speech.lang = currentLang;
+
                                 window.speechSynthesis.speak(speech);
                             }
                         }
