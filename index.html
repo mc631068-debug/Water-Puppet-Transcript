@@ -127,6 +127,7 @@
     </div>
 
     <script>
+	let audioUnlocked = false;
         let currentLang = 'en';
         const factImgs = [
             "https://images.openai.com/static-rsc-4/hlPFD8HzLVuWMyZyAGNDcdo3wIeJFlVdU4ZJkrgwQA4hosdNRyRPlFkeYQ5tHIJlAyqQggTAqbc8DHhNFFp6Adr3GUIatR3JRn4KlVe2pFtYmHcm7iXE3foqKzrHFHIeFTcvd-Ux2C4qJ-TjoM3D1WmMfUK0rwPZKy-fO6QgWkCiOdO3XE_-VH_ZyiqitgYi?purpose=inline",
@@ -499,6 +500,12 @@
         }
 
         function performSync() {
+	    if (!audioUnlocked) {
+   	        const unlock = new SpeechSynthesisUtterance(" ");
+   	        window.speechSynthesis.speak(unlock);
+                window.speechSynthesis.cancel();
+  	        audioUnlocked = true;
+}
             const syncScreen = document.getElementById('sync-screen');
             const bar = document.getElementById('sync-progress');
             const label = document.getElementById('sync-label');
