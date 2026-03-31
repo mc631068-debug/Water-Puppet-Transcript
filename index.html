@@ -165,15 +165,15 @@
     <!-- ✅ HERO IMAGE -->
     <img src="https://vietnamdiscovery.com/wp-content/uploads/2019/10/hanoi-water-puppet-show.jpg" style="width:100%; border-radius:10px; margin-bottom:15px;">
 
-    <!-- ✅ TITLE TEXT -->
-    <p style="opacity:0.6; font-size:0.8rem; margin-bottom:10px;">
-        Best experienced with sound 🎧
-    </p>
 
     <!-- ✅ INTRO CARD -->
     <div class="fact-card">
-        <h4>What is Water Puppetry?</h4>
-        <p>"Artisan" carries the weight of tradition, inheritance, and exquisite manual skill. As water puppetry is a form of cultural heritage, the performers do not merely "act"; they must master the manipulation of complex underwater machinery (often involving "trade secrets" or "generational techniques"). Using this term evokes a sense of deep respect for a craft that requires rigorous discipline and embodies the national identity.</p>
+        <div class="fact-card">
+    	    <h4 id="home-intro-title"></h4>
+    	    <p id="home-intro-desc"></p>
+	</div>
+
+	<p id="sound-hint" style="opacity:0.6; font-size:0.8rem; margin-bottom:10px;"></p>
     </div>
 
     <!-- ✅ KEEP YOUR EXISTING SYSTEM -->
@@ -215,6 +215,10 @@
 
         const langData = {
             en: {
+		homeIntroTitle: "What is Water Puppetry?",
+		homeIntroDesc: "A traditional Vietnamese art form where puppets perform on water, controlled behind the scenes.",
+		soundHint: "Best experienced with sound 🎧",
+
                 home: "HOME", live: "LIVE SCRIPT", sync: "SYNCING...", title: "THĂNG LONG AUDIO",
                 facts: [
                     {t: "1. Water Stage", d: "Performance area designed as a shallow pool where puppets appear to glide on water"},
@@ -247,6 +251,10 @@
 ]
             },
             vn: {
+		homeIntroTitle: "Múa rối nước là gì?",
+		homeIntroDesc: "Một loại hình nghệ thuật truyền thống của Việt Nam biểu diễn trên mặt nước.",
+		soundHint: "Trải nghiệm tốt nhất với âm thanh 🎧",
+
                 home: "TRANG CHỦ", live: "BẢN DỊCH", sync: "ĐANG ĐỒNG BỘ...", title: "MÚA RỐI NƯỚC",
                 facts: [
                     {t:"1. Sân Khấu Nước", d:"Hồ nước nông nơi rối di chuyển trên mặt nước"},
@@ -279,6 +287,10 @@
 ]
             },
             zh: {
+		homeIntroTitle: "什么是水上木偶戏？",
+		homeIntroDesc: "一种越南传统艺术形式，木偶在水面上表演，由幕后操控。",
+		soundHint: "建议开启声音体验 🎧",
+
                 home: "首页", live: "同步剧本", sync: "同步中...", title: "升龙水上木偶",
                 facts: [
                     {t:"1. 水上舞台", d:"浅水表演区让木偶滑动"},
@@ -311,6 +323,10 @@
 ]
             },
             fr: {
+		homeIntroTitle: "Qu'est-ce que le théâtre de marionnettes sur l’eau ?",
+		homeIntroDesc: "Une forme d’art traditionnelle vietnamienne où les marionnettes se produisent sur l’eau, contrôlées en coulisses.",
+		soundHint: "Meilleure expérience avec le son 🎧",
+
                 home: "ACCUEIL", live: "DIRECT", sync: "SYNCHRO...", title: "MARIONNETTES",
                 facts: [
                     {t:"1. Scène d’Eau", d:"Bassin peu profond pour les marionnettes"},
@@ -343,6 +359,10 @@
 ]
             },
             es: {
+		homeIntroTitle: "¿Qué es el teatro de marionetas acuáticas?",
+		homeIntroDesc: "Una forma de arte tradicional vietnamita donde las marionetas actúan sobre el agua, controladas detrás del escenario.",
+		soundHint: "Se recomienda usar sonido 🎧",
+
                 home: "INICIO", live: "GUIÓN", sync: "SINCRO...", title: "MARIONETAS",
                 facts: [
                     {t:"1. Escenario de Agua", d:"Piscina poco profunda para marionetas"},
@@ -375,6 +395,10 @@
 ]
             },
             de: {
+		homeIntroTitle: "Was ist Wasserpuppenspiel?",
+		homeIntroDesc: "Eine traditionelle vietnamesische Kunstform, bei der Puppen auf dem Wasser auftreten und hinter den Kulissen gesteuert werden.",
+		soundHint: "Am besten mit Ton erleben 🎧",
+
                 home: "START", live: "SKRIPT", sync: "SYNC...", title: "WASSERPUPPEN",
                 facts: [
                     {t:"1. Wasserbühne", d:"Flaches Becken für Figuren"},
@@ -407,6 +431,10 @@
 ]
             },
             ja: {
+		homeIntroTitle: "水上人形劇とは？",
+		homeIntroDesc: "水面上で人形が演じられる、ベトナムの伝統的な芸術形式で、舞台裏から操作されます。",
+		soundHint: "音声ありでの体験がおすすめです 🎧",
+
                 home: "ホーム", live: "台本", sync: "同期中...", title: "水上人形劇",
                 facts: [
                     {t:"1. 水上舞台", d:"浅い水で人形が動く"},
@@ -439,6 +467,10 @@
 ]
             },
             ko: {
+		homeIntroTitle: "수상 인형극이란?",
+		homeIntroDesc: "인형이 물 위에서 공연하는 베트남 전통 예술로, 뒤에서 조종됩니다.",
+		soundHint: "음향과 함께 체험하는 것을 추천합니다 🎧",
+
                 home: "홈", live: "대본", sync: "동기화 중...", title: "수상 인형극",
                 facts: [
                     {t:"1. 수중 무대", d:"얕은 물 위 무대"},
@@ -471,6 +503,10 @@
 ]
             },
             it: {
+		homeIntroTitle: "Che cos'è il teatro delle marionette sull’acqua?",
+		homeIntroDesc: "Una forma d’arte tradizionale vietnamita in cui le marionette si esibiscono sull’acqua, controllate dietro le quinte.",
+		soundHint: "Esperienza consigliata con audio 🎧",
+
                 home: "HOME", live: "COPIONE", sync: "SYNC...", title: "MARIONNETTE",
                 facts: [
                     {t:"1. Palco sull’Acqua", d:"Vasca poco profonda"},
@@ -503,6 +539,10 @@
 ]
             },
             ru: {
+		homeIntroTitle: "Что такое водный кукольный театр?",
+		homeIntroDesc: "Традиционное вьетнамское искусство, в котором куклы выступают на воде и управляются за кулисами.",
+		soundHint: "Рекомендуется смотреть со звуком 🎧",
+
                 home: "ГЛАВНАЯ", live: "СЦЕНАРИЙ", sync: "СИНХРО...", title: "ТХАНГ ЛОНГ",
                 facts: [
                     {t:"1. Водная сцена", d:"Неглубокий бассейн для кукол"},
@@ -547,6 +587,9 @@
             document.getElementById('app-title').innerText = data.title;
             document.getElementById('label-home').innerText = data.home;
             document.getElementById('label-live').innerText = data.live;
+	    document.getElementById('home-intro-title').innerText = data.homeIntroTitle;
+	    document.getElementById('home-intro-desc').innerText = data.homeIntroDesc;
+	    document.getElementById('sound-hint').innerText = data.soundHint;
 
             const container = document.getElementById('facts-container');
             container.innerHTML = '';
