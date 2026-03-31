@@ -199,7 +199,9 @@
 
     <script>
 	let audioUnlocked = false;
-        let currentLang = 'en';
+    let currentLang = 'en';
+	let puppetAudio = new Audio("audio/puppet.mp3");
+		
         const factImgs = [
             "https://images.openai.com/static-rsc-4/qS2-UPhSDiAdOt5MGTfaHpJVqPDKnzzkSSuforJDk6ay4kTc-ufeq3Xu9sbwdJt6FP2S6FWuqDwpI_Kz0wsjyRhBoTOvbnOtXO6psMYjMWWx3IxPgOdysdHJFG9xcg-bp-VWrE-6smuOl68cVNDnCodxO-tScXmmHghplj4dGGc?purpose=inline",
             "https://images.openai.com/static-rsc-4/_b45lmkwRNdqnNcOtJpnwD4vVHbE74Y4n5kc8RhvElgoKxMRNwVSa_7ChQl96AyFXEqlvbD39lugppe0vbwLyDOiLrtDSxWSrKieVuwZx4tUtYI51qhoZJiV5lPpQNVuJUOP4p-NNxFhuodFs-OOmo0ZsDPlT4Vqbo9IPEfEUEtGFhXtLRfla7g8q3iyfTkW?purpose=inline",
@@ -617,6 +619,9 @@
         }
 
         function performSync() {
+			puppetAudio.currentTime = 0;
+			puppetAudio.play();
+			
 			const data = langData[currentLang].script;
 	    if (!audioUnlocked) {
    	        const unlock = new SpeechSynthesisUtterance(" ");
@@ -774,6 +779,9 @@ document.getElementById('img-modal').onclick = function () {
 
 
 function endPerformance() {
+	puppetAudio.pause();
+	puppetAudio.currentTime = 0;
+	
     // fade out script
     document.getElementById('script-feed').style.opacity = "0";
 
