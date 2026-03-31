@@ -201,6 +201,8 @@
 	let audioUnlocked = false;
     let currentLang = 'en';
 	let puppetAudio = new Audio("audio/puppet.mp3");
+	puppetAudio.loop = true;
+	puppetAudio.volume = 0.3;
 		
         const factImgs = [
             "https://images.openai.com/static-rsc-4/qS2-UPhSDiAdOt5MGTfaHpJVqPDKnzzkSSuforJDk6ay4kTc-ufeq3Xu9sbwdJt6FP2S6FWuqDwpI_Kz0wsjyRhBoTOvbnOtXO6psMYjMWWx3IxPgOdysdHJFG9xcg-bp-VWrE-6smuOl68cVNDnCodxO-tScXmmHghplj4dGGc?purpose=inline",
@@ -731,7 +733,7 @@ function fadeTo(target, duration = 300) {
                         else if (currentLang === 'ko') speech.lang = 'ko-KR';
                         else speech.lang = currentLang;
 
-                        fadeTo(0.15);
+                        fadeTo(0.1);
 
 			speech.onend = () => {
     			    fadeTo(0.3); // smooth restore
