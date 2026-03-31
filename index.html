@@ -617,12 +617,18 @@
         }
 
         function performSync() {
+			const data = langData[currentLang].script;
 	    if (!audioUnlocked) {
    	        const unlock = new SpeechSynthesisUtterance(" ");
    	        window.speechSynthesis.speak(unlock);
                 window.speechSynthesis.cancel();
   	        audioUnlocked = true;
 	    }
+			const lastTime = data[data.length - 1].t;
+			setTimeout(() => {
+    		    endPerformance();
+		    }, (lastTime + 4) * 1000); 
+			
 	    const music = document.getElementById('bg-music');
 	    if (music) {
     		music.volume = 0.3;
@@ -766,6 +772,25 @@ document.getElementById('img-modal').onclick = function () {
     this.style.display = 'none';
 };
 
+
+function endPerformance() {
+    // fade out script
+    document.getElementById('script-feed').style.opacity = "0";
+
+    setTimeout(() => {
+        // reset UI
+        document.getElementById('live-content').style.display = 'none';
+        document.getElementById('trans-init').style.display = 'block';
+
+        // go back to home tab
+        changeTab('home');
+
+        // restore opacity for next time
+        document.getElementById('script-feed').style.opacity = "1";
+    }, 1000);
+	audio.pause();
+	audio.currentTime = 0;
+}
     </script>
 
 <audio id="bg-music" src="audio/puppet.mp3" loop></audio>
