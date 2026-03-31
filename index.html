@@ -78,30 +78,55 @@
         .primary-btn { background: var(--gold); color: #000; text-transform: uppercase; transition: 0.2s; }
         .primary-btn:hover { background: #ffcc22; }
 	.img-wrapper {
-    	    position: relative;
-    	    width: 90px;
-    	    height: 90px;
-    	    flex-shrink: 0;
-    	    cursor: pointer;
-	}
+    position: relative;
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    cursor: pointer;
+    overflow: hidden;
+}
 
-	.img-wrapper img {
-    	    width: 100%;
-    	    height: 100%;
-    	    border-radius: 8px;
-    	    object-fit: cover;
-	}
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
-	.expand-icon {
-    	    position: absolute;
-    	    bottom: 5px;
-    	    right: 5px;
-    	    font-size: 12px;
-    	    background: rgba(0,0,0,0.6);
-    	    color: white;
-    	    padding: 2px 4px;
-    	    border-radius: 4px;
-	}
+/* slight zoom on hover */
+.img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.expand-icon {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    font-size: 12px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 3px 5px;
+    border-radius: 4px;
+
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.2s ease;
+}
+
+/* show on hover (desktop) */
+.img-wrapper:hover .expand-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ALWAYS slightly visible on mobile */
+@media (hover: none) {
+    .expand-icon {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+}
     </style>
 </head>
 <body>
@@ -175,7 +200,7 @@
                 facts: [
                     {t: "1. Water Stage", d: "Performance area designed as a shallow pool where puppets appear to glide on water"},
                     {t: "2. Hidden Artisans", d: "Long rods and strings are used behind the screen to control puppet movements"},
-					{t: "3. Jackfruit Wood", d: "Material for water puppets because it is lightweight and resists water damage"},
+		    {t: "3. Jackfruit Wood", d: "Material for water puppets because it is lightweight and resists water damage"},
                     {t: "4. Bamboo Screen", d: "Curtain that hides puppeteers while creating a mysterious effect for the audience"},
                     {t: "5. Traditional Music", d: "Live music with drums and string instruments enhances the storytelling"},
                     {t: "6. Folklore Stories", d: "Performances often tell village legends, daily life, and historical tales"},
@@ -186,11 +211,11 @@
                 ],
                 script: [
                     {t:0, s:"[Music rises: drums and strings echo across the water]"},
-                    {t:6, m:"Welcome. This art was born in the flooded rice fields of northern Vietnam."},
-                    {t:14, m:"For generations, villagers stood in water like this, bringing stories to life."},
-                    {t:22, m:"Here comes Uncle Teu, the cheerful storyteller."},
-                    {t:28, m:"Uncle Teu: Welcome, my friends. Watch closely—the water is full of surprises."},
-                    {t:42, m:"A village festival begins. Flags rise, music plays, and spirits are welcomed."},
+                    {t:6, m:"Welcome! How delighted we are to see you attending the show today."},
+                    {t:14, m:"I'm going to talk to you for a few minutes about Vietnamese water puppetry."},
+                    {t:22, m:"Water puppetry is a folk art performance available in Vietnam only. It's associated with the nature, religion, and social life of Vietnam."},
+                    {t:28, m:"The water surface of rice fields, lakes, and pools is the characteristic of the countryside and an inspiration for the coming of water puppetry."},
+                    {t:42, m:"This art form has the water surface as the stage for performance."},
                     {t:60, m:"Dragons emerge from the water, symbols of power, rain, and life."},
                     {t:88, m:"In the countryside, farmers and buffalo prepare the fields."},
                     {t:110, m:"Life here depends on balance between water, land, and hard work."},
